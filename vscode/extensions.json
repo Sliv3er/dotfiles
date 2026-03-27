@@ -1,0 +1,22 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "pkief.material-icon-theme",
+    "zhuangtongfa.material-theme",
+    "formulahendry.auto-rename-tag",
+    "bradlc.vscode-tailwindcss",
+    "ms-azuretools.vscode-docker",
+    "ms-vscode-remote.remote-containers",
+    "christian-kohler.path-intellisense",
+    "streetsidesoftware.code-spell-checker",
+    "usernamehw.errorlens",
+    "aaron-bond.better-comments",
+    "naumovs.color-highlight",
+    "wayou.vscode-todo-highlight",
+    "github.copilot",
+    "ms-python.python",
+    "bmewburn.vscode-intelephense-client"
+  ]
+}
