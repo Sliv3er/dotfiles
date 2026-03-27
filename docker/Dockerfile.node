@@ -1,0 +1,26 @@
+# Optimized Node.js Dockerfile
+# Author: Ayoub Ghodhbane
+
+FROM node:20-alpine AS base
+WORKDIR /app
+RUN apk add --no-cache libc6-compat
+
+FROM base AS deps
+COPY package*.json ./
+RUN npm ci --only=production
+
+FROM base AS build
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+FROM base AS runner
+ENV NODE_ENV=production
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 appuser
+COPY --from=deps /app/node_modules ./node_modules
+COPY --from=build /app/dist ./dist
+USER appuser
+EXPOSE 3000
+CMD ["node", "dist/main.js"]
